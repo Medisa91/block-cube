@@ -1,27 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BoardWrapper, Container, CubeContainer, Item } from "./style";
-import { ICube } from "../../engin/blockCube";
+import { Board } from "../../engin/board";
 
-const Board: React.FC = () => {
-  let boardMatrix: boolean[][] = [[], []];
-  const [items, setItems] = useState([]);
+const GameBoard: React.FC = () => {
+  var board = new Board(10);
 
-  useEffect(() => {
-    boardMatrix = [...Array(10)].map((e) => Array(10).fill(false));
-    // setItems(boardMatrix);
-  }, []);
+  board.onMatch = (changedPoints) => {
+    console.log(changedPoints);
+  };
+
+  board.onCompleted = (rows: number[], cols: number[]) => {
+    console.log(rows);
+    console.log(cols);
+  };
 
   return (
     <>
       <BoardWrapper>
         <Container>
-          <CubeContainer>
-            {/* {items.map((r) => r.map((c) => <Item />))} */}
-          </CubeContainer>
+          <CubeContainer></CubeContainer>
         </Container>
       </BoardWrapper>
     </>
   );
 };
 
-export default Board;
+export default GameBoard;
