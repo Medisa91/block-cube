@@ -1,8 +1,8 @@
-import {CubeType} from "./cubeType";
-import {CubeData} from "./cubeData";
-import {IPoint} from "./ipoint";
-import {ICube} from "./icube";
-import {Cube} from "./cube";
+import { CubeType } from "./cubeType";
+import { CubeData } from "./cubeData";
+import { IPoint } from "./ipoint";
+import { ICube } from "./icube";
+import { Cube } from "./cube";
 
 export class Board {
   private static readonly defaultBoardSize: number = 10;
@@ -40,6 +40,10 @@ export class Board {
       if (this.onCompleted !== undefined)
         this.onCompleted(completedRows, completedCols);
     }
+  }
+
+  public getBoard(): boolean[][] {
+    return this.board;
   }
 
   private clearRows(rows: number[]) {
