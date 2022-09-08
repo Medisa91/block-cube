@@ -1,7 +1,10 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Board, ICube, IPoint, CubeType } from "./engin/blockCube";
+import { Board } from "./engin/blockCube";
+import { IPoint } from "./engin/ipoint";
+import { ICube } from "./engin/icube";
+import { CubeType } from "./engin/cubeType";
 
 function App() {
   var x = new Board(10);
