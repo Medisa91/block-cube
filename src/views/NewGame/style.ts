@@ -7,9 +7,6 @@ const Main = styled.div`
   background-repeat: repeat;
   height: 100vh;
   padding-top: 100px;
-  display: grid;
-  grid-template-rows: 1fr 6fr 1fr;
-  grid-template-columns: 1fr 3fr 1fr;
 `;
 
 export { Main };

@@ -4,7 +4,8 @@ import { Board } from "./engin/board";
 import { IPoint } from "./engin/ipoint";
 import { ICube } from "./engin/icube";
 import { CubeType } from "./engin/cubeType";
-import Game from "./views/Game";
+// import Game from "./views/Game";
+import NewGame from "./views/NewGame";
 
 function App() {
   var x = new Board(10);
@@ -74,7 +75,8 @@ function App() {
   x.drop(point4, cube4);
   x.printBoard();
 
-  return <Game />;
+  // return <Game />;
+  return <NewGame />;
 }
 
 export default App;
