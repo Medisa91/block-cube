@@ -56,8 +56,8 @@ function GameBoard(props: ChangeAxis) {
   return (
     <div id="board-wrapper" className="drop-target">
       <BoardWrapper>
-        <Container>
-          <CubeContainer ref={myRef}>
+        <Container ref={myRef}>
+          <CubeContainer>
             {boardMatrix.map((rows) => {
               return (
                 <ItemCubeContainer>

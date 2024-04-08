@@ -1,4 +1,5 @@
 import type { CSSProperties, FC } from "react";
+import { useEffect } from "react";
 import { useDrop } from "react-dnd";
 import {
   BoardWrapper,
@@ -27,12 +28,16 @@ export const Dustbin: FC = () => {
 
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.BOX,
-    drop: () => ({ name: "Dustbin" }),
+    drop: () => ({ name: "Board" }),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
     }),
   }));
+
+  useEffect(() => {
+    console.log(drop);
+  }, [drop]);
 
   const isActive = canDrop && isOver;
   let backgroundColor = "#222";
@@ -44,14 +49,7 @@ export const Dustbin: FC = () => {
 
   return (
     <>
-      {/* <div
-        ref={drop}
-        style={{ ...style, backgroundColor }}
-        data-testid="dustbin"
-      >
-        {isActive ? "Release to drop" : "Drag a box here"}
-      </div> */}
-      <BoardWrapper data-testid="dustbin">
+      <BoardWrapper>
         <Container>
           <CubeContainer ref={drop} data-testid="dustbin">
             {boardMatrix.map((rows) => {
@@ -65,8 +63,8 @@ export const Dustbin: FC = () => {
             })}
           </CubeContainer>
         </Container>
-        {/* {isActive ? "Release to drop" : "Drag a box here"} */}
       </BoardWrapper>
+      {/* {isActive ? "Release to drop" : "Drag a box here"} */}
     </>
   );
 };
